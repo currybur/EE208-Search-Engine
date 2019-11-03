@@ -1,0 +1,221 @@
+$def with()
+<head>
+  <link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
+  <script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../static/layui-v2.4.5/layui/css/layui.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+  <title>The Palace Museum</title>
+  <link rel="stylesheet" type="text/css" href="../static/mystyle.css">
+  <style type="text/css">
+    html,body{margin:0;padding:0;}
+    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+  </style>
+</head>
+
+<body>
+  <div class="sui-navbar navbar-fixed-top">
+    <div class="navbar-inverse">
+      <div class="navbar-inner">
+        <div class="sui-container"><a href="/" class="sui-brand">Artest</a>
+          <ul class="sui-nav">
+            <li class="active">
+              <a href="/">Home</a>
+            </li>
+            <li><a href="/about">About</a></li>
+            <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Others<i class="caret"></i></a>
+              <ul role="menu" class="sui-dropdown-menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/cnm">中国国家博物馆</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/dpm">北京故宫博物院</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/sxm">陕西历史博物馆</a></li>
+              </ul>
+            </li>
+            <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Game Time!<i class="caret"></i></a>
+              <ul role="menu" class="sui-dropdown-menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/ML">Mona Lisa</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/Christmas">Merry Christmas</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="img-responsive"><img src="../static/dpm.jpg" width="1000"></div>
+
+  <div class='mname'><a href="https://www.dpm.org.cn/"> 北京故宫博物院</a></div>
+
+  <div class="icon" align="center">
+    <div class="container">
+      <div class="item item-1">
+        <button id='praise' style="outline:none; height:40px; background: #FFFFFF; padding-bottom: 20px; margin-bottom:11px; border:0;"><span class="fa-stack fa-2x"><i id="praise-img" class="fa fa-heart-o"></i></span></button>
+        <button id='share' value="../static/sxm.html" onClick="copyUrl()" style="outline:none; height:40px; background: #FFFFFF; padding-bottom: 20px; margin-bottom:11px; border:0;"><span class="fa-stack fa-2x"><span id="share-img" class="fa fa-share"></span></span></button>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 style="padding-bottom:1%; font-style:bold;">URL is copied!</h2>
+              <span id="closeBtn" class="close">×</span>
+            </div>
+            <div class="modal-body" style="text-align: left; font-family: 'Microsoft Yahei'; font-size: 20px;">
+              <p>Share with your friends now!</p>
+              <p style="font-style:italic;font-size:15px;padding-top:1%;">If it doesn't work, please copy the following url:</p>
+              <p style="font-size:15px;">artest.xyz/dpm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/jquery/jquery.js"></script>
+  <script type="text/javascript">
+    $$(document).ready(function(){
+      $$("#praise").click(function(){
+        $$("#praise-img").toggleClass("main");
+      });
+    });
+  </script>
+
+  <script src="js/clipboard.min.js"></script>
+  <script type="text/javascript">
+    function copyUrl(){
+     var rst=window.clipboardData.setData("text","/sxm");
+    }
+  </script>
+
+  <script type="text/javascript" src="../static/js/modalBox.js"></script>
+  <script type="text/javascript">
+  (function() {
+      /*建立模态框对象*/
+      var modalBox = {};
+      /*获取模态框*/
+      modalBox.modal = document.getElementById("myModal");
+        /*获得trigger按钮*/
+      modalBox.share = document.getElementById("share");
+        /*获得关闭按钮*/
+      modalBox.closeBtn = document.getElementById("closeBtn");
+
+      /*模态框显示*/
+      modalBox.show = function() {
+        console.log(this.modal);
+        this.modal.style.display = "block";
+      }
+
+      /*模态框关闭*/
+      modalBox.close = function() {
+        this.modal.style.display = "none";
+      }
+
+      /*当用户点击模态框内容之外的区域，模态框也会关闭*/
+      modalBox.outsideClick = function() {
+        var modal = this.modal;
+        window.onclick = function(event) {
+          if(event.target == modal) {modal.style.display = "none";}
+        }
+      }
+
+      /*模态框初始化*/
+      modalBox.init = function() {
+        var that = this;
+        this.share.onclick = function() {
+          that.show();
+        }
+        this.closeBtn.onclick = function() {
+          that.close();
+        }
+        this.outsideClick();
+      }
+      modalBox.init();
+     
+    })();
+  </script>
+
+  <style type="text/css">
+    .main
+    {color:#CD3333;}
+
+    /*模态框*/
+    .modal {
+      display: none; /* 默认隐藏 */
+      position: fixed; /* 根据浏览器定位 */
+      z-index: 1; /* 放在顶部 */
+      left: 0;
+      top: 0;
+      width: 100%; /* 全宽 */
+      height: 100%; /* 全高 */
+      overflow: auto; /* 允许滚动 */
+      background-color: rgba(0,0,0,0.4); /* 背景色 */
+    }
+    /*模态框内容*/
+    .modal-content {
+      display: flex; /*采用flexbox布局*/
+      flex-direction: column; /*垂直排列*/
+      position: relative;
+      background-color: #fefefe;
+      margin: 15% auto; /*距顶部15% 水平居中*/
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      animation: topDown 0.4s; /*自定义动画，从模态框内容上到下出现*/
+    }
+    @keyframes topDown {
+      from {top: -300px; opacity: 0}
+      to {top: 0; opacity: 1}
+    }
+    /*模态框头部*/
+    .modal-header {
+      display: flex; /*采用flexbox布局*/
+      flex-direction: row; /*水平布局*/
+      align-items: center; /*内容垂直居中*/
+      justify-content: space-between; 
+      font-size:25px;
+    }
+    /*关闭X 样式*/
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+
+  <section class="block">
+    <input type="checkbox">
+    <div class="case-block">
+      <div>展开</div>
+      <div>收起</div>
+    </div>
+    <div class="intro">
+      <div>&emsp;&emsp;故宫位于北京市中心，也称“紫禁城”。这里曾居住过24个皇帝，是明清两代（公元1368～1911年）的皇宫，现辟为“故宫博物院”。故宫的整个建筑金碧辉煌，庄严绚丽，被誉为世界五大宫之一（北京故宫、法国凡尔赛宫、英国白金汉宫、美国白宫、俄罗斯克里姆林宫），并被联合国科教文组织列为“世界文化遗产”。 故宫的宫殿建筑是中国现存最大、最完整的古建筑群，总面积达72万多平方米，有殿宇宫室9999间半，被称为“殿宇之海”，气魄宏伟，极为壮观。无论是平面布局，立体效果，还是形式上的雄伟堂皇，都堪称无与伦比的杰作。 一条中轴贯通着整个故宫，这条中轴又在北京城的中轴线上。三大殿、后三宫、御花园都位于这条中轴线上。在中轴宫殿两旁，还对称分布着许多殿宇，也都宏伟华丽。这些宫殿可分为外朝和内廷两大部分。外朝以太和、中和、保和三大殿为中心，文华、武英殿为两翼。内廷以乾清宫、交泰殿、坤宁宫为中心，东西六宫为两翼，布局严谨有序。故宫的四个城角都有精巧玲珑的角楼，建造精巧美观。宫城周围环绕着高10米，长3400米的宫墙，墙外有52米宽的护城河。 现在，故宫的一些宫殿中设立了综合性的历史艺术馆、绘画馆、分类的陶瓷馆、青铜器馆、明清工艺美术馆、铭刻馆、玩具馆、文房四宝馆、玩物馆、珍宝馆、钟表馆和清代宫廷典章文物展览等，收藏有大量古代艺术珍品，据统计共达1052653件，占中国文物总数的六分之一，是中国收藏文物最丰富的博物馆，也是世界著名的古代文化艺术博物馆，其中很多文物是绝无仅有的无价国宝。</div>
+    </div>
+  </section>
+
+  <div class="relate">
+    <div class="section"><br>你可能还喜欢/Related works</div>
+    <div class="pics">
+      <div class="container">
+        <div class="item item-1">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="map">
+    <div class="section"><br>位置/Location</div>
+    <img src="../static/dpm_map.jpg" id="dituContent">
+  </div>
+  <div class="info">
+    中国 · 北京市 · 东城区景山前街4号<br>
+    gugong@dpm.org.cn<br>
+    010-85007938<br>
+    <font size="2" style="text-align:center;">访问 <a href="https://www.dpm.org.cn/Home.html">北京故宫博物院</a><br></font>
+  </div>
+</body>

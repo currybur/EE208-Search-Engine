@@ -1,0 +1,164 @@
+$def with()
+<head>
+  <link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
+  <script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+  <link rel="icon" href="../static/ML.jpg">
+  <script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+  <link href='http://fonts.font.im/css?family=Asap:400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../static/layui-v2.4.5/layui/css/layui.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="../static/mystyle.css">
+  <title>Home</title>
+  <style type="text/css">
+    html,body{margin:0;padding:0;}
+    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+  </style>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+
+    #container {
+      width: 1000px;
+      height: 820px;
+      margin: auto;
+    }
+
+    div.search {padding: 30px 0;}
+
+    form {
+      padding-left:13%;
+      position: absolute;
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    select, input, button {
+      border: none;
+      outline: none;
+    }
+
+    select {
+      -moz-appearance: none;
+      width:165px;
+      height: 42px;
+    }
+
+    input {
+      width: 100%;
+      height: 42px;
+      padding-left: 13px;
+      position: absolute;
+    }
+
+    button {
+      position: absolute;
+      margin-left:100%;
+      height: 42px;
+      width: 42px;
+      cursor: pointer;
+    }
+
+    .bar1 select{
+      border:2px solid #000000;
+      border-radius: 5px 0 0 5px;
+      text-indent: 7px;
+    }
+
+    .bar1 input {
+      border: 2px solid #000000;
+      background: #FFFFFF;
+      color: #9E9C9C;
+    }
+
+    .bar1 button {
+      background: #000000;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .bar1 button:before {
+      content: "\f002";
+      font-family: FontAwesome;
+      font-size: 16px;
+      color: #FFFFFF;
+    }
+
+    .udd{opacity:0;}
+
+    .a_text{
+      width: 100%;
+      height: 42px;
+      padding-left: 13px;
+      position: absolute;
+      text-align:center;
+      line-height:36px;
+      font-size:20;
+    }
+  </style>
+</head>
+
+<body>
+<div style="height:100%">
+  <div class="sui-navbar navbar-fixed-top">
+    <div class="navbar-inverse">
+      <div class="navbar-inner">
+        <div class="sui-container"><a href="/" class="sui-brand">Artest</a>
+          <ul class="sui-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Others<i class="caret"></i></a>
+              <ul role="menu" class="sui-dropdown-menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/cnm">中国国家博物馆</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/dpm">北京故宫博物院</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/sxm">陕西历史博物馆</a></li>
+              </ul>
+            </li>
+            <li class="sui-dropdown">
+              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Game Time!<i class="caret"></i></a>
+              <ul role="menu" class="sui-dropdown-menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/ML">Mona Lisa</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/Christmas">Merry Christmas</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container" style="display: grid;grid-template-columns: 25% 50% 25%;">
+    <div></div>
+    <div>
+    <img src="../static/logo.png" style="margin-top:7%;background-size:contain|cover;width:100%;height: auto;margin-bottom:-7%;">
+	</div>
+    <div></div>
+  </div>  
+  <div id="container">
+    <div class="search bar1">
+      <form id="upload" enctype="multipart/form-data" method="POST" action="/audio" name="myfile">
+        <select id="choice" onchange="changed(this.value)">
+          <option value ="audio">Audio</option>
+          <option value ="image">Choose from Album</option>
+          <option value ="text">Plain Text</option>
+          <option value ="ocr">Read from Picture</option>
+
+        </select>
+        <a href="javascript:;" class="a-upload a_text" style="font-color:#000000;background-color:#FFFFFF;border:2px solid #000000;">
+          <input id="search" class="udd" type="file" accept="audio/*;capture=microphone" name="myfile">UPLOAD YOUR AUDIO
+        </a>
+        <button type="submit"></button>
+      </form>
+    </div>
+</div>
+  <script>
+    function changed(val){
+      if(val=="text"){open('/','_parent');}
+      else if(val=="image"){open('/imgsrc','_parent');}
+      else if(val=="audio"){open('/audio','_parent');}
+      else if(val=="ocr"){open('/ocr','_parent');}
+    }
+  </script>
+</body>

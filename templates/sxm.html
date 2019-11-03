@@ -1,0 +1,220 @@
+$def with()
+<head>
+  <link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
+  <script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../static/layui-v2.4.5/layui/css/layui.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+  <title>Shaanxi History Museum</title>
+  <link rel="stylesheet" type="text/css" href="../static/mystyle.css">
+  <style type="text/css">
+    html,body{margin:0;padding:0;}
+    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+  </style>
+</head>
+
+<body>
+  <div class="sui-navbar navbar-fixed-top">
+    <div class="navbar-inverse">
+      <div class="navbar-inner">
+        <div class="sui-container"><a href="/" class="sui-brand">Artest</a>
+          <ul class="sui-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Others<i class="caret"></i></a>
+              <ul role="menu" class="sui-dropdown-menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/cnm">中国国家博物馆</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/dpm">北京故宫博物院</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/sxm">陕西历史博物馆</a></li>
+              </ul>
+            </li>
+            <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Game Time!<i class="caret"></i></a>
+              <ul role="menu" class="sui-dropdown-menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/ML">Mona Lisa</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/Christmas">Merry Christmas</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="img-responsive"><img src="../static/sxm.jpg" width="1000"></div>
+
+  <div class='mname'><a href="http://www.sxhm.com/"> 陕西历史博物馆</a></div>
+
+  <div class="icon" align="center">
+    <div class="container">
+      <div class="item item-1">
+        <button id='praise' style="outline:none; height:40px; background: #FFFFFF; padding-bottom: 20px; margin-bottom:11px; border:0;"><span class="fa-stack fa-2x"><i id="praise-img" class="fa fa-heart-o"></i></span></button>
+        <button id='share' value="/sxm" onClick="copyUrl()" style="outline:none; height:40px; background: #FFFFFF; padding-bottom: 20px; margin-bottom:11px; border:0;"><span class="fa-stack fa-2x"><span id="share-img" class="fa fa-share"></span></span></button>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 style="padding-bottom:1%; font-style:bold;">URL is copied!</h2>
+                <span id="closeBtn" class="close">×</span>
+            </div>
+            <div class="modal-body" style="text-align: left; font-family: 'Microsoft Yahei'; font-size: 20px;">
+              <p>Share with your friends now!</p>
+              <p style="font-style:italic;font-size:15px;padding-top:1%;">If it doesn't work, please copy the following url:</p>
+              <p style="font-size:15px;">artest.xyz/sxm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/jquery/jquery.js"></script>
+  <script type="text/javascript">
+    $$(document).ready(function(){
+      $$("#praise").click(function(){
+        $$("#praise-img").toggleClass("main");
+      });
+    });
+  </script>
+  <script src="js/clipboard.min.js"></script>
+  <script type="text/javascript">
+    function copyUrl(){
+     var rst=window.clipboardData.setData("text","/sxm");
+    }
+  </script>
+
+  <script type="text/javascript" src="../static/js/modalBox.js"></script>
+  <script type="text/javascript">
+    (function() {
+    /*建立模态框对象*/
+    var modalBox = {};
+    /*获取模态框*/
+    modalBox.modal = document.getElementById("myModal");
+    /*获得trigger按钮*/
+    modalBox.share = document.getElementById("share");
+    /*获得关闭按钮*/
+    modalBox.closeBtn = document.getElementById("closeBtn");
+    /*模态框显示*/
+    modalBox.show = function() {
+      console.log(this.modal);
+      this.modal.style.display = "block";
+    }
+    /*模态框关闭*/
+    modalBox.close = function() {
+      this.modal.style.display = "none";
+    }
+    /*当用户点击模态框内容之外的区域，模态框也会关闭*/
+    modalBox.outsideClick = function() {
+      var modal = this.modal;
+      window.onclick = function(event) {
+              if(event.target == modal) {
+                modal.style.display = "none";
+              }
+      }
+    }
+    /*模态框初始化*/
+    modalBox.init = function() {
+      var that = this;
+      this.share.onclick = function() {
+              that.show();
+      }
+      this.closeBtn.onclick = function() {
+        that.close();
+      }
+      this.outsideClick();
+    }
+    modalBox.init();
+
+  })();
+  </script>
+
+  <style type="text/css">
+    .main
+    {color:#CD3333;}
+
+    /*模态框*/
+    .modal {
+        display: none; /* 默认隐藏 */
+        position: fixed; /* 根据浏览器定位 */
+        z-index: 1; /* 放在顶部 */
+        left: 0;
+        top: 0;
+        width: 100%; /* 全宽 */
+        height: 100%; /* 全高 */
+        overflow: auto; /* 允许滚动 */
+        background-color: rgba(0,0,0,0.4); /* 背景色 */
+    }
+    /*模态框内容*/
+    .modal-content {
+        display: flex; /*采用flexbox布局*/
+        flex-direction: column; /*垂直排列*/
+        position: relative;
+        background-color: #fefefe;
+        margin: 15% auto; /*距顶部15% 水平居中*/
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        animation: topDown 0.4s; /*自定义动画，从模态框内容上到下出现*/
+    }
+    @keyframes topDown {
+        from {top: -300px; opacity: 0}
+        to {top: 0; opacity: 1}
+    }
+    /*模态框头部*/
+    .modal-header {
+        display: flex; /*采用flexbox布局*/
+        flex-direction: row; /*水平布局*/
+        align-items: center; /*内容垂直居中*/
+        justify-content: space-between;
+        font-size:25px;
+    }
+    /*关闭X 样式*/
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+  </style>
+
+  <section class="block">
+    <input type="checkbox">
+    <div class="case-block">
+      <div>展开</div>
+      <div>收起</div>
+    </div>
+    <div class="intro">
+      <div>&emsp;&emsp;三秦大地是中华民族生息、繁衍，华夏文明诞生、发展的重要地区之一，中国历史上最为辉煌的周、秦、汉、唐等十三个王朝曾在这里建都。丰富的文化遗存，深厚的文化积淀，形成了陕西独特的历史文化风貌，被誉为“古都明珠，华夏宝库”的陕西历史博物馆则是展示陕西历史文化和中国古代文明的艺术殿堂。</div>
+      <div>&emsp;&emsp;陕西历史博物馆位于西安大雁塔的西北侧，筹建于1983年，1991年6月20日落成开放，是中国第一座大型现代化国家级博物馆，前身可以追溯到1909年成立的陕西“劝工陈列所”，它的建成标志着中国博物馆事业迈入了新的发展里程。这座馆舍为“中央殿堂、四隅崇楼”的唐风建筑群，主次井然有序，高低错落有致，气势雄浑庄重，融民族传统、地方特色和时代精神于一体。馆区占地 65000平方米。建筑面积55600平方米，文物库区面积8000平方米，展厅面积11000平方米，馆藏文物1717950件（组）。上起远古人类初始阶段使用的简单石器，下至1840年前社会生活中的各类器物，时间跨度长达一百多万年。文物不仅数量多、种类全，而且品位高、价值广，其中的商周青铜器精美绝伦，历代陶俑千姿百态，汉唐金银器独步全国，唐墓壁 画举世无双。可谓琳琅满目、精品荟萃。</div>
+      <div>&emsp;&emsp;陕西历史博物馆是一座综合性历史类博物馆。开馆以来，充分发挥文物藏品优势，坚持“有效保护、合理利用、加强管理”的原则，把收藏保管、科学研究和宣传教育功能有机相结合，举办了各种形式的陈列展览，形成了基本陈列、专题陈列和临时展览互为补充、交相辉映的陈列体系，从多角度、多侧面向广大观众揭示历史文物的丰富文化内涵，展现华夏民族博大精深的文明成就。同时，以开放的姿态走出国门， 将灿烂辉煌的中华文明、光彩夺目的三秦文化呈现给世界各国人民。</div>
+      <div>&emsp;&emsp;作为被首批确定为中国“4A”级旅游景点的陕西历史博物馆，以其优上的陈列、优美的环境、优质的服务、优良的秩序和独特的魅力，吸引着众多中外宾客纷至沓来，已成为传播中华民族优秀文化和对外文化交流的重要窗口。在21世纪里，这座汇集着三秦大地文物精华的文化殿堂，将会以充满生机和活力的崭新面貌，为中华文化复兴以及人类文明的交流互鉴作出更大的贡献。</div>
+    </div>
+  </section>
+
+  <div class="relate">
+    <div class="section"><br>你可能还喜欢/Related works</div>
+    <div class="pics">
+      <div class="container" style="display: grid;grid-template-columns:;">
+        <div class="item item-1">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="map">
+    <div class="section"><br>位置/Location</div>
+    <img src="../static/sxm_map.jpg" id="dituContent">
+  </div>
+  <div class="info">
+    中国 · 陕西 · 西安市小寨东路91号<br>
+    sxhm1991@sxhm.com<br>
+    029-85253806<br>
+    <font size="2" style="text-align:center;">访问 <a href="http://www.sxhm.com/">陕西历史博物馆</a><br></font>
+  </div>
+</body>
